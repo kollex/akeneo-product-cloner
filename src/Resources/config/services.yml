@@ -1,5 +1,6 @@
 services:
     flagbit_product_cloner.controller.product_model:
+        public: true
         class: Flagbit\Bundle\ProductClonerBundle\Controller\ProductModelController
         arguments:
             - '@pim_catalog.repository.product_model'
@@ -11,9 +12,11 @@ services:
             - '@pim_catalog.validator.product'
             - '@pim_enrich.normalizer.violation'
             - '%flagbit_product_cloner.attribute_blacklist%'
-        tags: ['controller.service_arguments']
+        calls:
+          - [ 'setContainer', [ '@service_container' ] ]
 
     flagbit_product_cloner.controller.product:
+        public: true
         class: Flagbit\Bundle\ProductClonerBundle\Controller\ProductController
         arguments:
             - '@pim_catalog.repository.product'
@@ -30,4 +33,5 @@ services:
             - '@pim_enrich.normalizer.product_violation'
             - '@pim_catalog.builder.product'
             - '%flagbit_product_cloner.attribute_blacklist%'
-        tags: ['controller.service_arguments']
+        calls:
+          - [ 'setContainer', [ '@service_container' ] ]

@@ -195,7 +195,7 @@ class ProductController extends AbstractController
             $this->productSaver->save($cloneProduct);
             return new JsonResponse('Success.');
         } catch (\Exception $e) {
-            return new JsonResponse(['values' => [['message' => 'Failed.']]], $e->getMessage());
+            return new JsonResponse(['values' => [['message' => $e->getMessage()]]], Response::HTTP_BAD_REQUEST);
         }
     }
 
