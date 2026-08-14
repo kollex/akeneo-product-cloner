@@ -166,8 +166,8 @@ class ProductController extends AbstractController
                 $cloneProduct = $this->productBuilder->createProduct(
                     $data['code']
                 );
-                unset($data['code']);
             }
+            unset($data['code']);
 
             // clone product using Akeneo normalizer
             $normalizedProduct = $this->normalizeProduct($product);
