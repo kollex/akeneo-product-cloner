@@ -18,8 +18,8 @@ class Configuration implements ConfigurationInterface
      */
     public function getConfigTreeBuilder()
     {
-        $treeBuilder = new TreeBuilder();
-        $root = $treeBuilder->root('flagbit_product_cloner');
+        $treeBuilder = new TreeBuilder('flagbit_product_cloner');
+        $root = $treeBuilder->getRootNode();
 
         $root->children()
             ->arrayNode('attribute_blacklist')

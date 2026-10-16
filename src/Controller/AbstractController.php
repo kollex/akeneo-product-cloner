@@ -4,10 +4,9 @@ namespace Flagbit\Bundle\ProductClonerBundle\Controller;
 
 use Akeneo\Pim\Enrichment\Component\Product\Model\EntityWithFamilyVariantInterface;
 use Akeneo\Pim\Structure\Component\Repository\AttributeRepositoryInterface;
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 
-abstract class AbstractController extends Controller
+abstract class AbstractController extends \Symfony\Bundle\FrameworkBundle\Controller\AbstractController
 {
 
     abstract protected function getNormalizer() : NormalizerInterface;
@@ -22,6 +21,16 @@ abstract class AbstractController extends Controller
     protected function normalizeProduct(EntityWithFamilyVariantInterface $product)
     {
         $normalizedProduct = $this->getNormalizer()->normalize($product, 'external_api');
+
+        // When no attributes are defined (except sku), the normalizer returns a stdObject, which breaks the array operations below
+        if (!\is_array($normalizedProduct['values'])) {
+            $normalizedProduct['values'] = [];
+        }
+
+        // Can be returned as stdObject, which breaks the cloning process as an array is expected
+        if (!\is_array($normalizedProduct['quantified_associations'])) {
+            $normalizedProduct['quantified_associations'] = [];
+        }
 
         while ($parent = $product->getParent()) {
             foreach ($parent->getValuesForVariation() as $value) {
