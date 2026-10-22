@@ -19,12 +19,11 @@ imports:
     - { resource: '../../../../../vendor/akeneo/pim-community-dev/config/services/test/storage.yml' }
     - { resource: '../../../../../vendor/akeneo/pim-community-dev/config/packages/security.yml' }
     - { resource: '../../../../../vendor/akeneo/pim-community-dev/config/packages/test/security.yml' }
-    - { resource: '../../../../../vendor/akeneo/pim-community-dev/config/packages/sensio_framework_extra.yml' }
-    - { resource: '../../../../../vendor/akeneo/pim-community-dev/config/packages/swiftmailer.yml' }
     - { resource: '../../../../../vendor/akeneo/pim-community-dev/config/packages/twig.yml' }
     - { resource: '../../../../../vendor/akeneo/pim-community-dev/config/services/gedmo_doctrine_extensions.yml' }
     - { resource: '../../../../../vendor/akeneo/pim-community-dev/config/services/pim_parameters.yml' }
     - { resource: '../../../../../vendor/akeneo/pim-community-dev/config/services/services.yml' }
     - { resource: '../../../../../vendor/akeneo/pim-community-dev/config/services/pim.yml' }
     - { resource: '../../../../../vendor/akeneo/pim-community-dev/config/packages/monolog.yml' }
+    - { resource: '../../../../../vendor/akeneo/pim-community-dev/config/packages/messenger.yml' }
 #    - { resource: '../../../../../vendor/akeneo/pim-community-dev/config/packages/doctrine.yml' }
