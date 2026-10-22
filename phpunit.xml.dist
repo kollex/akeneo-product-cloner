@@ -26,6 +26,7 @@
         <env name="APP_DATABASE_USER" value="akeneo_pim"/>
         <env name="APP_DATABASE_PASSWORD" value="akeneo_pim"/>
         <env name="APP_DEFAULT_LOCALE" value="en"/>
+        <env name="AKENEO_PIM_URL" value="http://localhost:8080"/>
     </php>
 
     <filter>

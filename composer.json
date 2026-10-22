@@ -30,19 +30,26 @@
     }
   ],
   "require": {
-    "akeneo/pim-community-dev": "^7.0",
+    "akeneo/pim-community-dev": "v2026.4",
     "ext-json": "*"
   },
   "require-dev": {
     "phpspec/phpspec": "*",
     "squizlabs/php_codesniffer": "*",
-    "overtrue/phplint": "*",
+    "overtrue/phplint": "^9.0",
     "phpunit/phpunit": "^8.0",
-    "symfony/debug-bundle": "^4.4",
-    "symfony/web-profiler-bundle": "^4.4",
-    "symfony/web-server-bundle": "^4.4"
+    "symfony/debug-bundle": "^5.4",
+    "symfony/web-profiler-bundle": "^5.4"
   },
   "conflict": {
     "akeneo/pim-enterprise-dev": "*"
+  },
+  "config": {
+    "platform": {
+      "php": "8.3.99"
+    },
+    "allow-plugins": {
+      "symfony/flex": true
+    }
   }
 }
